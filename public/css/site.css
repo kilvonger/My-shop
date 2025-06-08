@@ -1,0 +1,474 @@
+/* Основная цветовая схема */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.navbar-dark.bg-dark {
+    background-color: #28a745; /* Зелёный цвет для навигации */
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #d4edda !important; /* Светло-зелёный при наведении */
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Стиль карточек товаров */
+.list-item {
+    margin-bottom: 1.5rem;
+}
+
+.list-item .card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.list-item .card:hover {
+    transform: translateY(-5px);
+}
+
+.list-item .card-header {
+    background-color: #040404; /* Зелёный заголовок */
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.list-item .card-body {
+    padding: 1rem;
+}
+
+.list-item .card-img-top {
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+
+.form-inline {
+    position: relative;
+}
+
+.form-inline input[type="search"] {
+    padding-right: 3rem;
+    border: 1px solid #28a745;
+    border-radius: 2rem;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-inline input[type="search"]:focus {
+    border-color: #1e7e34;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+
+/* Стили для #catalog-sidebar */
+#catalog-sidebar {
+    border-right: 1px solid #ddd;
+    padding-right: 1rem;
+    list-style: none; /* Убираем маркеры */
+    padding-left: 0; /* Убираем отступ слева */
+    margin-bottom: 10px;
+}
+
+#catalog-sidebar ul,
+#catalog-sidebar ol {
+    list-style-type: none !important; /* Принудительно убираем маркеры */
+    padding-left: 0 !important; /* Убираем отступ слева */
+    margin: 0 !important; /* Убираем лишние отступы */
+}
+
+#catalog-sidebar > li {
+    margin-bottom: 0.5rem;
+}
+
+#catalog-sidebar a {
+    font-size: 1rem;
+    color: #343a40;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+#catalog-sidebar a:hover {
+    color: #000000;
+}
+
+#catalog-sidebar .badge {
+    font-size: 0.7rem; 
+    padding: 0.1rem 0.4rem; 
+    border-radius: 0.2rem; 
+    margin-left: 0.5rem; 
+}
+
+/* Стили для #brands-popular */
+#brands-popular {
+    list-style: none; 
+    padding-left: 0; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; 
+    justify-content: flex-start; 
+}
+
+/* Стили для #brands-popular */
+#brands-popular {
+    list-style: none; /* Убираем маркеры */
+    padding-left: 0; /* Убираем отступ слева */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Расстояние между элементами */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+#brands-popular li {
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Автоматическая высота */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#brands-popular a {
+    font-size: 1rem;
+    color: #000; /* Чёрный цвет текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    transition: color 0.3s ease-in-out; /* Плавный переход цвета */
+}
+
+#brands-popular a:hover {
+    color: #28a745; /* Зелёный цвет при наведении */
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+/* Контейнер фильтра */
+.filter-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form.d-flex {
+    display: flex;
+    gap: 1rem; /* Расстояние между строками */
+}
+
+/* Строка фильтров */
+.filters-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Разрешаем перенос при маленькой ширине экрана */
+}
+
+/* Элементы формы */
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.custom-select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+/* Группа фильтров */
+.form-group {
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+.custom-select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+/* Чекбоксы */
+.form-check-inline {
+    margin-right: 1rem;
+}
+
+.form-check-input {
+    margin-top: 0.2rem;
+    margin-right: 0.5rem;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #343a40;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: flex-end; /* Выравнивание кнопок по правому краю */
+}
+/* Кнопка "Фильтровать" */
+.btn-primary {
+    background-color: #28a745; /* Зелёный цвет */
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Форма */
+form.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Кнопка "Сбросить" */
+.ml-auto {
+    margin-left: auto; /* Перемещает кнопку вправо */
+}
+
+.btn-light {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #343a40;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для контейнера значков */
+.position-absolute.top-0.right-0 {
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Расстояние между значками */
+}
+
+/* Стиль для значков */
+.badge {
+    font-size: 0.8rem; /* Размер текста */
+    padding: 0.3rem 0.6rem; /* Внутренние отступы */
+    border-radius: 0.25rem; /* Скругление углов */
+}
+
+.badge i.fa,
+.badge i.fas {
+    font-size: 0.8rem !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.nested-category li::before {
+    content: "-"; /* Знак минус */
+    margin-right: 0.5rem; /* Отступ между "-" и текстом */
+    color: #000; /* Цвет знака */
+    font-weight: bold; /* Жирный шрифт (опционально) */
+}
+
+/* Убираем "-" для первого уровня (если нужно) */
+#catalog-sidebar > ul > li::before {
+    content: none; /* Убираем "-" для корневых элементов */
+}
+
+.card.list-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card.list-item:hover {
+    transform: translateY(-5px); /* Лёгкое поднятие при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+/* Стиль для текста */
+.card-footer h3 {
+    font-size: 1.2rem; /* Размер шрифта */
+    color: #343a40; /* Цвет текста */
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+/* Убираем подчёркивание ссылки */
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+/* Стиль для контейнера заголовка */
+.product-title {
+    height: 50px; /* Фиксированная высота */
+    overflow: hidden; /* Скрываем всё, что выходит за пределы */
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+}
+
+/* Стиль для заголовка */
+.card-title {
+    font-size: 1rem; /* Размер шрифта */
+    line-height: 1.2; /* Межстрочный интервал */
+    margin-bottom: 0; /* Убираем отступ снизу */
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Скрываем текст, который не помещается */
+    text-overflow: ellipsis; /* Добавляем многоточие (...) */
+}
+
+/* Стили для навигационной панели */
+.navbar {
+    padding: 0.5rem 1rem; /* Увеличенные отступы */
+}
+
+/* Стили для бренда */
+.navbar-brand {
+    font-size: 1.5rem; /* Увеличенный размер текста */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для ссылок */
+.navbar-nav .nav-link {
+    font-size: 1rem; /* Размер текста ссылок */
+    color: #fff; /* Цвет текста */
+}
+
+/* Стили для активных ссылок */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Цвет при наведении */
+}
+
+/* Стилизация левой колонки */
+.sidebar {
+    background-color: #f8f9fa; /* Светлый фон */
+    padding: 1rem; /* Внутренние отступы */
+    border-radius: 0.5rem; /* Закругление углов */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.sidebar .sidebar-content {
+    margin-top: 1rem; /* Отступ сверху */
+}
+
+.sidebar h3 {
+    font-size: 1.25rem; /* Размер заголовков */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.sidebar ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем отступы */
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem; /* Отступ между элементами */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    font-size: 1rem; /* Размер текста */
+}
+
+.sidebar ul li a:hover {
+    color: #007bff; /* Цвет при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-bottom: 1rem; /* Отступ снизу на маленьких экранах */
+    }
+}
+
+
+
+/* Стили для body */
+html, body {
+    height: 100%; /* Полная высота страницы */
+    margin: 0; /* Убираем отступы */
+}
+
+/* Стили для wrapper */
+.wrapper {
+    display: flex; /* Используем flexbox */
+    flex-direction: column; /* Колонка */
+    min-height: 100vh; /* Минимальная высота равна высоте экрана */
+}
+
+/* Стили для основного контента */
+.container {
+    flex: 1; /* Растягиваем контент на всю доступную высоту */
+}
+
+/* Стили для футера */
+footer {
+    background-color: #343a40; /* Темный фон */
+    color: #fff; /* Белый текст */
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #fff; /* Белые ссылки */
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #007bff; /* Синий цвет при наведении */
+}
+
+footer .row > div {
+    padding: 0 1rem; /* Отступы внутри колонок */
+}
+
+footer p {
+    margin-bottom: 0.5rem; /* Уменьшенные отступы между параграфами */
+}
