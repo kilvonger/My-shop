@@ -100,6 +100,7 @@ public function product(Product $product)
     }
 
 
+
     private function convertPricesToRubles($products, $exchangeRate) {
         if ($exchangeRate) {
             foreach ($products as $product) {

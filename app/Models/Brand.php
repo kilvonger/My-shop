@@ -20,6 +20,6 @@ class Brand extends Model {
 
 
     public static function popular() {
-        return self::withCount('products')->orderByDesc('products_count')->limit(5)->get();
+        return self::withCount('products')->orderByDesc('products_count')->get();
     }
 }

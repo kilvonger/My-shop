@@ -13,17 +13,16 @@
                 <p>Описание отсутствует</p>
             @endisset
         </div>
-        <div class="col-md-6">
-            @php
-                if ($category->image) {
-                    // $url = url('storage/catalog/category/image/' . $category->image);
-                    $url = Storage::disk('public')->url('catalog/category/image/' . $category->image);
-                } else {
-                    $url = Storage::disk('public')->url('catalog/category/image/default.jpg');
-                }
-            @endphp
-            <img src="{{ $url }}" alt="" class="img-fluid">
-        </div>
+<div class="col-md-6">
+    @php
+        if ($category->image) {
+            $url = asset('storage/catalog/category/image/' . $category->image);
+        } else {
+            $url = asset('storage/catalog/category/image/default.jpg');
+        }
+    @endphp
+    <img src="{{ $url }}" alt="{{ $category->name }}" class="img-fluid rounded">
+</div>
     </div>
     @if ($category->children->count())
         <p><strong>Дочерние категории</strong></p>

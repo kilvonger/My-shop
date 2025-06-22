@@ -17,12 +17,17 @@ class ProductController extends Controller {
         $this->imageSaver = $imageSaver;
     }
 
-    public function index() {
-        $roots = Category::where('parent_id', 0)->get();
-        $products = Product::paginate(5);
-        return view('admin.product.index', compact('products', 'roots'));
-    }
+public function index() {
+    $roots = Category::where('parent_id', 0)->get();
+    $brands = Brand::all(); // Получаем все бренды
+    $products = Product::paginate(5);
+    return view('admin.product.index', compact('products', 'roots', 'brands'));
+}
 
+public function brand(Brand $brand) {
+    $products = $brand->products()->paginate(5);
+    return view('admin.product.brand', compact('brand', 'products'));
+}
 
     public function category(Category $category) {
         $products = $category->products()->paginate(5);

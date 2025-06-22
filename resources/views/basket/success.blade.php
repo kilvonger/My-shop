@@ -1,68 +1,101 @@
 @extends('layout.site', ['title' => 'Заказ размещен'])
 
 @section('content')
-    <h1>Заказ размещен</h1>
+    <div class="container mt-5">
+        <!-- Заголовок -->
+        <h1 class="mb-4">Заказ размещен</h1>
 
-    <p>Ваш заказ успешно размещен. Наш менеджер скоро свяжется с Вами для уточнения деталей.</p>
+        <!-- Сообщение о размещении заказа -->
+        <div class="alert alert-success" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            Ваш заказ успешно размещен. Наш менеджер скоро свяжется с Вами для уточнения деталей.
+        </div>
 
-    @if ($order)
-        <h2>Ваш заказ</h2>
-        <table class="table table-bordered">
-            <tr>
-                <th>№</th>
-                <th>Наименование</th>
-                <th>Цена</th>
-                <th>Кол-во</th>
-                <th>Стоимость</th>
-            </tr>
-            @if ($order->items->isNotEmpty())
-                @foreach ($order->items as $item)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>
-                            @if (isset($item->price_in_rubles))
-                                {{ number_format($item->price_in_rubles, 2, '.', '') }} ₽
-                            @else
-                                <span style="color: red;">Курс недоступен</span>
-                            @endif
-                        </td>
-                        <td>{{ $item->quantity }}</td>
-                        <td>
-                            @if (isset($item->cost_in_rubles))
-                                {{ number_format($item->cost_in_rubles, 2, '.', '') }} ₽
-                            @else
-                                <span style="color: red;">Курс недоступен</span>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-                <tr>
-                    <th colspan="4" class="text-right">Итого</th>
-                    <th>
-                        @if (isset($order->amount_in_rubles))
-                            {{ number_format($order->amount_in_rubles, 2, '.', '') }} ₽
+        @if ($order)
+            <!-- Информация о заказе -->
+            <h2 class="mb-4">Ваш заказ</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Наименование</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col">Стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($order->items->isNotEmpty())
+                            @foreach ($order->items as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>
+                                        @if (isset($item->price_in_rubles))
+                                            <span class="fw-bold">{{ number_format($item->price_in_rubles, 2, '.', '') }} ₽</span>
+                                        @else
+                                            <span class="text-danger">Курс недоступен</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->quantity }}</td>
+                                    <td>
+                                        @if (isset($item->cost_in_rubles))
+                                            <span class="fw-bold">{{ number_format($item->cost_in_rubles, 2, '.', '') }} ₽</span>
+                                        @else
+                                            <span class="text-danger">Курс недоступен</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <tr class="table-light">
+                                <th colspan="4" class="text-end">Итого:</th>
+                                <th>
+                                    @if (isset($order->amount_in_rubles))
+                                        <span class="fw-bold text-success">{{ number_format($order->amount_in_rubles, 2, '.', '') }} ₽</span>
+                                    @else
+                                        <span class="text-danger">Курс недоступен</span>
+                                    @endif
+                                </th>
+                            </tr>
                         @else
-                            <span style="color: red;">Курс недоступен</span>
+                            <tr>
+                                <td colspan="5" class="text-center">Товары в заказе отсутствуют</td>
+                            </tr>
                         @endif
-                    </th>
-                </tr>
-            @else
-                <tr>
-                    <td colspan="5" class="text-center">Товары в заказе отсутствуют</td>
-                </tr>
-            @endif
-        </table>
+                    </tbody>
+                </table>
+            </div>
 
-        <h2>Ваши данные</h2>
-        <p>Имя, фамилия: {{ $order->name }}</p>
-        <p>Адрес почты: <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
-        <p>Номер телефона: {{ $order->phone }}</p>
-        <p>Адрес доставки: {{ $order->address }}</p>
-        @isset($order->comment)
-            <p>Комментарий: {{ $order->comment }}</p>
-        @endisset
-    @else
-        <p>Информация о заказе недоступна. Вернитесь в <a href="{{ route('basket.index') }}">корзину</a>.</p>
-    @endif
+            <!-- Данные пользователя -->
+            <h2 class="mb-4">Ваши данные</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Имя, фамилия:</strong> {{ $order->name }}</p>
+                    <p><strong>Адрес почты:</strong> <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
+                    <p><strong>Номер телефона:</strong> {{ $order->phone }}</p>
+                    <p><strong>Адрес доставки:</strong> {{ $order->address }}</p>
+                    @isset($order->comment)
+                        <p><strong>Комментарий:</strong> {{ $order->comment }}</p>
+                    @endisset
+                </div>
+            </div>
+
+            <!-- Кнопки для действий -->
+            <div class="mt-4" style="margin-bottom: 20px;">
+                <a href="{{ route('catalog.index') }}" class="btn btn-primary me-2">
+                    <i class="fas fa-shopping-cart me-2"></i> Вернуться в каталог
+                </a>
+                <a href="{{ route('basket.index') }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-box me-2"></i> Перейти в корзину
+                </a>
+            </div>
+        @else
+            <!-- Если заказ не найден -->
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Информация о заказе недоступна. Вернитесь в <a href="{{ route('basket.index') }}" class="alert-link">корзину</a>.
+            </div>
+        @endif
+    </div>
 @endsection

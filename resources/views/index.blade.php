@@ -1,11 +1,22 @@
 @extends('layout.site')
 
 @section('content')
-    <div class="jumbotron jumbotron-fluid bg-light text-center mb-4">
+    <div class="jumbotron jumbotron-fluid bg-light mb-4">
         <div class="container">
-            <h1 class="display-4">Добро пожаловать в <br> Sport-Universe!</h1>
-            <p class="lead">Мы предлагаем широкий выбор профессиональных тренажёров для дома и залов.</p>
-            <a href="{{ route('catalog.index') }}" class="btn btn-primary btn-lg">Перейти в каталог</a>
+            <div class="row align-items-center">
+                <!-- Левая колонка: Текст -->
+                <div class="col-md-8">
+                    <h1 class="display-4">Добро пожаловать в Sport-Universe!</h1>
+                    <p class="lead">Мы предлагаем широкий выбор профессиональных тренажёров для дома и залов.</p>
+                    <a href="{{ route('catalog.index') }}" class="btn btn-primary btn-lg">Перейти в каталог</a>
+                </div>
+                <!-- Правая колонка: Изображение -->
+                <div class="col-md-4 text-center">
+                    <img src="{{ asset('img/dumbbell.svg') }}" 
+                        alt="Добро пожаловать" 
+                        style="max-width: 200px; margin: 0 auto;">
+                </div>
+            </div>
         </div>
     </div>
 

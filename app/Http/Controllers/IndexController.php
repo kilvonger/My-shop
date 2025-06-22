@@ -13,13 +13,13 @@ class IndexController extends Controller {
 
         \Log::info('Exchange rate used:', ['rate' => $exchangeRate]);
 
-        $new = Product::whereNew(true)->latest()->limit(3)->get();
+        $new = Product::whereNew(true)->latest()->get();
         $this->convertPricesToRubles($new, $exchangeRate);
 
-        $hit = Product::whereHit(true)->latest()->limit(3)->get();
+        $hit = Product::whereHit(true)->latest()->get();
         $this->convertPricesToRubles($hit, $exchangeRate);
 
-        $sale = Product::whereSale(true)->latest()->limit(3)->get();
+        $sale = Product::whereSale(true)->latest()->get();
         $this->convertPricesToRubles($sale, $exchangeRate);
 
         return view('index', compact('new', 'hit', 'sale'));

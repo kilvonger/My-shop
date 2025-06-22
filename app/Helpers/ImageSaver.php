@@ -43,7 +43,7 @@ class ImageSaver
 
             // Создаем уменьшенные копии изображения
             $this->resize($path, 'catalog/' . $dir . '/image/', 586, 500, $ext); // Большая копия
-            $this->resize($path, 'catalog/' . $dir . '/thumb/', 300, 150, $ext); // Маленькая копия
+            $this->resize($path, 'catalog/' . $dir . '/thumb/', 500, 500, $ext); // Маленькая копия
         }
 
         return $name;

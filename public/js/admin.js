@@ -1,15 +1,9 @@
 jQuery(document).ready(function($) {
-    /*
-     * Общие настройки ajax-запросов, отправка на сервер csrf-токена
-     */
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    /*
-     * Автоматическое создание slug при вводе name (замена кириллицы на латиницу)
-     */
     $('input[name="name"]').on('input', function() {
         var map = {
             'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'Yo', 'Ж': 'Zh',
@@ -32,32 +26,20 @@ jQuery(document).ready(function($) {
         text = text.replace(/-+/g, '-');
         $('input[name="slug"]').val(text);
     });
-    /*
-     * Подключение wysiwyg-редактора для редактирования контента страницы
-     */
     $('textarea[id="editor"]').summernote({
         lang: 'ru-RU',
         height: 300,
         callbacks: {
-            /*
-             * При вставке изображения загружаем его на сервер
-             */
             onImageUpload: function(images) {
                 for (var i = 0; i < images.length; i++) {
                     uploadImage(images[i], this);
                 }
             },
-            /*
-             * При удалении изображения удаляем его на сервере
-             */
             onMediaDelete: function(target) {
                 removeImage(target[0].src);
             }
         }
     });
-    /*
-     * Загружает на сервер вставленное в редакторе изображение
-     */
     function uploadImage(image, textarea) {
         var data = new FormData();
         data.append('image', image);
@@ -81,9 +63,6 @@ jQuery(document).ready(function($) {
             }
         });
     }
-    /*
-     * Удаляет на сервере удаленное в редакторе изображение
-     */
     function removeImage(src) {
         $.ajax({
             data: {'image': src, '_method': 'DELETE'},

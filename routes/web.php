@@ -102,6 +102,9 @@ Route::group([
     
     Route::get('product/category/{category}', 'ProductController@category')
         ->name('product.category');
+
+    Route::get('product/brand/{brand}', 'ProductController@brand')
+        ->name('product.brand');
     
     Route::resource('order', 'OrderController', ['except' => [
         'create', 'store', 'destroy'

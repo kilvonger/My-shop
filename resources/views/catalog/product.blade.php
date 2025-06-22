@@ -39,10 +39,9 @@
             <p class="text-black mb-4" style="font-size: 1.5rem; font-weight: bold;">
             {{ $priceInRubles ? number_format($priceInRubles, 2, '.', '') : 'Курс недоступен' }} ₽
             </p>
-            <small>({{ number_format($product->price, 2, '.', '') }} USD)</small>
 
-            <!-- Форма добавления в корзину -->
-            <form action="{{ route('basket.add', ['id' => $product->id]) }}" method="post" class="add-to-basket">
+        <!-- Форма добавления в корзину -->
+            <form id="addToBasketForm" action="{{ route('basket.add', ['id' => $product->id]) }}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="input-quantity" class="form-label fw-bold">Количество</label>
@@ -173,9 +172,10 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <!-- Подключение Toastr JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
-
 <script>
     $(document).ready(function () {
         // Инициализация слайдера
@@ -206,9 +206,13 @@
             $('#' + target + '-block').slideDown(300); // Показываем нужный блок с анимацией
         });
     });
-    document.addEventListener('DOMContentLoaded', function () {
-    // Обработчик отправки формы добавления товара
-    document.querySelectorAll('.add-to-basket').forEach(function (form) {
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Получаем форму по её уникальному ID
+    const form = document.getElementById('addToBasketForm');
+
+    if (form) {
+        // Добавляем обработчик события submit
         form.addEventListener('submit', function (event) {
             event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -225,11 +229,9 @@
             .then(response => response.json()) // Получаем JSON-ответ от сервера
             .then(data => {
                 if (data.error) {
-                    // Показываем ошибку во всплывающем окне
-                    toastr.error(data.error);
+                    toastr.error(data.error); // Показываем ошибку
                 } else if (data.success) {
-                    // Показываем успешное уведомление
-                    toastr.success(data.success);
+                    toastr.success(data.success); // Показываем успешное уведомление
 
                     // Обновляем количество товаров в корзине
                     const basketContainer = document.getElementById('basket-container');
@@ -243,7 +245,7 @@
                 toastr.error('Произошла ошибка при добавлении товара');
             });
         });
-    });
+    }
 });
 </script>
 

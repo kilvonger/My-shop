@@ -80,13 +80,18 @@ body {
 
 
 /* Стили для #catalog-sidebar */
-#catalog-sidebar {
-    border-right: 1px solid #ddd;
-    padding-right: 1rem;
-    list-style: none; /* Убираем маркеры */
-    padding-left: 0; /* Убираем отступ слева */
-    margin-bottom: 10px;
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 300px; /* Увеличь до нужного размера */
+    width: 100%; /* Можно оставить, если нужно растяжение под родителя */
+    box-sizing: border-box;
+    margin-left: -150px; /* Сдвигаем влево на нужное число */
 }
+
+
 
 #catalog-sidebar ul,
 #catalog-sidebar ol {
@@ -472,3 +477,4 @@ footer .row > div {
 footer p {
     margin-bottom: 0.5rem; /* Уменьшенные отступы между параграфами */
 }
+

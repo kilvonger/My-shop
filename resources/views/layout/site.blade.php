@@ -8,8 +8,8 @@
     <title>{{ $title ?? 'Sport-Universe - Интернет-магазин тренажёров' }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css "
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-          crossorigin="anonymous"/>
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('css/site.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/site.js') }}"></script>
@@ -34,13 +34,13 @@
                 </ul>
                 <form action="{{ route('catalog.search') }}" class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" name="query"
-                           placeholder="Поиск по каталогу" aria-label="Search">
+                            placeholder="Поиск по каталогу" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" id="top-basket">
                         <a class="nav-link @if ($positions) text-success @endif"
-                           href="{{ route('basket.index') }}">
+                            href="{{ route('basket.index') }}">
                             Корзина
                             @if ($positions) ({{ $positions }}) @endif
                         </a>
